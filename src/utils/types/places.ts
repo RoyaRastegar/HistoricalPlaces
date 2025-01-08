@@ -6,7 +6,7 @@ export interface IPlacesState {
 export interface IPlace {
   id: number;
   name: string;
-  images: string;
+  image: string;
   description: string;
   visited: boolean;
 }
