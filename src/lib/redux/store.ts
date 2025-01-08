@@ -1,21 +1,13 @@
-import type { Action, ThunkAction } from '@reduxjs/toolkit';
-import { combineSlices, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
+import historicalPlacesReducer from './historicalPlacesSlice/historicalplacesSlice.ts';
 
-const rootReducer = combineSlices(historicalPlacesSlice);
+export const store = configureStore({
+  reducer: {
+    historicalPlaces: historicalPlacesReducer,
+  },
+});
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
-export const makeStore = () => {
-  return configureStore({
-    reducer: rootReducer,
-  });
-};
-
-export type AppStore = ReturnType<typeof makeStore>;
-export type AppDispatch = AppStore['dispatch'];
-export type AppThunk<ThunkReturnType = void> = ThunkAction<
-  ThunkReturnType,
-  RootState,
-  unknown,
-  Action
->;
+export default store;
