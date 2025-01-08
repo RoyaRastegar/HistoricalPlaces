@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
 import AllPlaces from './components/AllPlaces.tsx';
+import { Provider } from 'react-redux';
+import store from './lib/redux/store.ts';
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <AllPlaces />
-    </div>
+    </Provider>
   );
 }
 
