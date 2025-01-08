@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Petronas Twin Towers",
+    "image": "https://media.istockphoto.com/id/538178771/photo/petronas-twin-towers-kuala-lumpur-malaysia.jpg?s=612x612&w=0&k=20&c=ikePz_avVOIGzeKMb8kWZuZwtAbfbYy7rT9VpK2s7tA=",
+    "visited": false,
+    "description": "The Petronas Twin Towers are a pair of iconic skyscrapers in Kuala Lumpur, Malaysia, known for being the tallest twin towers in the world. They were completed in 1998 and stand at 452 meters tall, featuring a unique design and a sky bridge that connects the two towers."
+  },
+  {
+    "id": 2,
+    "name": "Menara Tower",
+    "image": "https://media.istockphoto.com/id/1208830132/photo/menara-kuala-lumpur-tower.jpg?s=612x612&w=0&k=20&c=iE76WTme7qBIfC94aURjft0Ri1BECl7i-JL-LgPGu74=",
+    "visited": false,
+    "description": "Menara Tower, also known as the Kuala Lumpur Tower (KL Tower), is a prominent communications and observation tower located in Kuala Lumpur, Malaysia. Standing at 421 meters, it was completed in 1995 and is one of the tallest towers in the world. The tower offers spectacular panoramic views of the city from its observation deck, and it is a popular tourist attraction."
+  },
+  {
+    "id": 3,
+    "name": "Kuala Lumpur Sultan Abdul Samad Building",
+    "image": "https://media.istockphoto.com/id/1402735856/photo/sultan-abdul-samad-building-and-the-new-second-tallest-building-in-the-world-merdeka-118.jpg?s=612x612&w=0&k=20&c=Y_PNYbPDCpK4SFqzD8GYXyoODGbOKAkmKD4zPgW4WIg=",
+    "visited": false,
+    "description": "The Sultan Abdul Samad Building is an iconic historical building located in the heart of Kuala Lumpur, Malaysia. Built in 1897 during the British colonial era, it is known for its distinctive Moorish-style architecture and a clock tower. The building originally housed the colonial administration and now serves as a government building and a popular tourist attraction."
+  },
+  {
+    "id": 4,
+    "name": "Melaka Malaysia",
+    "image": "https://media.istockphoto.com/id/1200276699/photo/the-oriental-red-building-in-melaka-malacca-malaysia.jpg?s=612x612&w=0&k=20&c=zYVF3r_OoOM0h9vobinrGs8ZMKcqxCIgzBPAi0o5o5A=",
+    "visited": false,
+    "description": "Melaka (Malacca) is a historic city located on the west coast of Peninsular Malaysia. It was once a prominent trading port and has a rich colonial history, having been ruled by the Portuguese, Dutch, and British. The city is known for its well-preserved colonial architecture, vibrant streets, and historical landmarks such as the A Famosa fortress and Stadthuys building."
+  },
+  {
+    "id": 5,
+    "name": "Putrajaya Malaysia",
+    "image": "https://media.istockphoto.com/id/516727175/photo/putrajaya-mosque.jpg?s=612x612&w=0&k=20&c=tdgM-EB4h16_8389zsa3EjB7Z-KfzT-Hml-uGv-ODe0=",
+    "visited": false,
+    "description": "Putrajaya is the administrative capital of Malaysia, located just south of Kuala Lumpur. Known for its modern architecture, lush greenery, and beautiful lakes, Putrajaya was developed in the 1990s as a planned city to ease congestion in Kuala Lumpur. The city is home to numerous government buildings, the impressive Putra Mosque, and the iconic Putra Bridge."
+  },
+  {
+    "id": 6,
+    "name": "Kek Lok Si Temple",
+    "image": "https://media.istockphoto.com/id/1471379016/photo/kek-lok-si-temple-a-heritage-temple-with-a-lot-of-tourist-attractions-penang-malaysia.jpg?s=612x612&w=0&k=20&c=sE4KFLzosgIcnX4f_-elJsXm424XurZx-dA2R7JpW7M=",
+    "visited": false,
+    "description": "Kek Lok Si Temple, located in George Town, Penang, Malaysia, is one of the largest and most important Buddhist temples in Southeast Asia. Built in the late 19th century, it is known for its impressive architecture, including a seven-story pagoda and a giant statue of the Goddess of Mercy, Kuan Yin. The temple is a significant pilgrimage site and a popular tourist destination."
+  }
+]
