@@ -58,6 +58,10 @@ const AllPlaces = () => {
   // #endregion
   return (
     <div className='flex flex-col'>
+      <div className='h-fit text-center p-3 text-2xl'>
+        {' '}
+        <h2 className=''>Historical Places App </h2>
+      </div>
       <div>
         {' '}
         {randomPlace ? (
@@ -66,7 +70,7 @@ const AllPlaces = () => {
           </div>
         ) : (
           currentItems && (
-            <div className='my-4 gap-3 mx-auto justify-center p-3 flex h-full flex-wrap rounded-xl sm:grid-cols-2 lg:grid lg:h-full lg:w-full lg:grid-cols-3 lg:items-start lg:gap-3'>
+            <div className=' gap-3 mx-auto justify-center p-3 flex h-full flex-wrap rounded-xl sm:grid-cols-2 lg:grid lg:h-full lg:w-full lg:grid-cols-3 lg:items-start lg:gap-3'>
               {' '}
               <AnimatePresence mode='wait'>
                 {currentItems.map((place) => (
@@ -81,7 +85,7 @@ const AllPlaces = () => {
       <div className='flex justify-center p-3 gap-5 mb-5'>
         <button
           onClick={clearRandomHandel}
-          className='text-white text-[10px] bg-green-400 rounded-full px-3 lg:text-sm hover:bg-gradient-to-r from-green-300 from-10% via-lime-300 via-50% to-emerald-500 to-90%'
+          className='text-white text-[10px] bg-green-400 rounded-full px-3 lg:text-sm hover:bg-gradient-to-r from-green-300 from-10%  via-50% to-emerald-500 to-90%'
         >
           Show Places
         </button>
@@ -100,7 +104,7 @@ const AllPlaces = () => {
         </Flowbite>
         <button
           onClick={randomHandel}
-          className='text-white bg-green-400 rounded-full px-3 text-[10px] lg:text-sm hover:bg-gradient-to-r from-green-300 from-10% via-lime-300 via-50% to-emerald-500 to-90%'
+          className='text-white bg-green-400 rounded-full px-3 text-[10px] lg:text-sm hover:bg-gradient-to-r from-green-300 from-10%  via-50% to-emerald-500 to-90%'
         >
           Random Place
         </button>
