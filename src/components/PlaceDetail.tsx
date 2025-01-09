@@ -33,7 +33,7 @@ const PlaceDetail = () => {
       root: {
         base: 'flex',
         children:
-          'flex gap-8 overflow-auto pt-8 justify-start h-[20rem] lg:h-[10rem] text-center flex-col lg:justify-center lg:gap-2 lg:px-4 py-3 ',
+          'flex gap-8 overflow-auto pt-8 justify-start h-[20rem]  text-center flex-col lg:justify-center lg:gap-2 lg:px-4 py-3 ',
       },
     },
   };
@@ -52,7 +52,7 @@ const PlaceDetail = () => {
           }}
         />
       </Button>
-      <div className='  h-screen lg:rounded-lg lg:border lg:border-gray-200 bg-white lg:shadow-md lg:w-[60%] lg:mx-auto lg:mt-20 lg:h-[80%]  '>
+      <div className='  h-screen lg:rounded-lg lg:border  lg:border-gray-200 bg-white lg:shadow-md lg:w-[60%] lg:mx-auto lg:my-4 lg:h-[80%]  '>
         <div className='  lg:w-[25rem]lg:h-[35rem] '>
           <Flowbite key={selectedPlace.id} theme={{ theme: customTheme }}>
             <Card
@@ -63,7 +63,7 @@ const PlaceDetail = () => {
               <h5 className=' text-3xl lg:text-sm   font-extrabold tracking-tight text-text'>
                 {selectedPlace.name}
               </h5>
-              <p className='font-bold pl-2 text-start text-xl lg:text-sm lg:font-normal  lg:line-clamp-3 lg:text-center'>
+              <p className='font-bold pl-2 text-start text-xl lg:text-sm lg:font-normal   lg:text-center'>
                 {selectedPlace.description}
               </p>
             </Card>
