@@ -1,38 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import {
-  fetchHistoricalPlaces,
-  toggleVisited,
-} from '../lib/redux/historicalPlacesSlice/historicalplacesSlice.ts';
+import { fetchHistoricalPlaces } from '../lib/redux/historicalPlacesSlice/historicalplacesSlice.ts';
 import { AppDispatch, RootState } from '../lib/redux/store.ts';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Flowbite, Pagination, Tooltip } from 'flowbite-react';
-import { MdOutlineVisibilityOff } from 'react-icons/md';
-import { MdOutlineVisibility } from 'react-icons/md';
-import { useNavigate } from 'react-router-dom';
+import { Flowbite, Pagination } from 'flowbite-react';
 import { AnimatePresence } from 'framer-motion';
+import PlaceCard from './PlaceCard.tsx';
 
 const AllPlaces = () => {
-  // #regionconst
-  const navigate = useNavigate();
+  //#regionconst
   const dispatch: AppDispatch = useDispatch();
   const { places } = useSelector((state: RootState) => state.historicalPlaces);
   const [currentPage, setCurrentPage] = useState(1);
+  const [randomPlace, setRandomPlace] = useState<number | null>(null);
   const onPageChange = (page: number) => setCurrentPage(page);
   const totalPage = Math.ceil(places.length / 6);
   const startIndex = (currentPage - 1) * 6;
   const currentItems = places.slice(startIndex, startIndex + 6);
-  const customTheme = {
-    card: {
-      img: {
-        base: ' w-full h-72 object-cover',
-      },
-      root: {
-        base: 'flex',
-        children:
-          'flex lg:h-[10rem]  flex-col justify-center gap-2 px-4 py-3 text-center ',
-      },
-    },
-  };
   const customThemePag = {
     pagination: {
       pages: {
@@ -56,79 +39,72 @@ const AllPlaces = () => {
   };
   // #endregionconst
 
-  // #regionhooks
   useEffect(() => {
     dispatch(fetchHistoricalPlaces());
   }, [dispatch]);
-  // #endregionhooks
 
   // #regionhandel
-  const visitedHandel = (id: number) => {
-    dispatch(toggleVisited(id));
+  const randomHandel = () => {
+    if (!currentItems || currentItems.length === 0) {
+      console.error('No items available for selection!');
+      return;
+    }
+    const randomNumber = Math.floor(Math.random() * currentItems.length);
+    setRandomPlace(randomNumber);
   };
-  const handleCardClick = (id: number) => {
-    navigate(`/placedetails/${id}`);
+  const clearRandomHandel = () => {
+    setRandomPlace(null);
   };
-  // #endregionhandel
+  // #endregion
   return (
-    <div className='my-4 gap-3 mx-auto justify-center p-3 flex h-full flex-wrap rounded-xl sm:grid-cols-2 lg:grid lg:h-full lg:w-full lg:grid-cols-3 lg:items-start lg:gap-3'>
-      {currentItems && (
-        <AnimatePresence mode='wait'>
-          {currentItems.map((place) => (
-            <div className=' lg:w-[30rem]lg:h-[30rem] rounded-lg border border-gray-200 bg-white shadow-md  lg:hover:shadow-xl lg:hover:shadow-gray-500'>
-              <div
-                onClick={() => handleCardClick(place.id)}
-                className='lg:w-[25rem]lg:h-[25rem]  cursor-pointer '
-              >
-                <Flowbite key={place.id} theme={{ theme: customTheme }}>
-                  <Card
-                    imgAlt='Meaningful alt text for an image that is not purely decorative'
-                    imgSrc={place.image}
-                    className=' flex  flex-col items-center '
-                  >
-                    <h5 className='text-sm font-extrabold tracking-tight text-text'>
-                      {place.name}
-                    </h5>
-                    <p className=' text-sm font-normal line-clamp-3'>
-                      {place.description}
-                    </p>
-                  </Card>
-                </Flowbite>
-              </div>
-              <div className='pl-6'>
-                <Tooltip
-                  className='w-fit'
-                  content={place.visited ? 'Visited' : 'unvisited'}
-                >
-                  <button
-                    className='lg:w-8 lg:h-8'
-                    onClick={() => visitedHandel(place.id)}
-                  >
-                    {place.visited ? (
-                      <MdOutlineVisibility className='lg:text-lg text-emerald-500 ' />
-                    ) : (
-                      <MdOutlineVisibilityOff className='lg:text-lg ' />
-                    )}
-                  </button>
-                </Tooltip>
-              </div>
+    <div className='flex flex-col'>
+      <div>
+        {' '}
+        {randomPlace ? (
+          <div className='lg:w-[30rem] justify-self-center my-6'>
+            <PlaceCard place={currentItems[randomPlace]} />
+          </div>
+        ) : (
+          currentItems && (
+            <div className='my-4 gap-3 mx-auto justify-center p-3 flex h-full flex-wrap rounded-xl sm:grid-cols-2 lg:grid lg:h-full lg:w-full lg:grid-cols-3 lg:items-start lg:gap-3'>
+              {' '}
+              <AnimatePresence mode='wait'>
+                {currentItems.map((place) => (
+                  <PlaceCard place={place} />
+                ))}
+              </AnimatePresence>
             </div>
-          ))}
-        </AnimatePresence>
-      )}
-      <Flowbite theme={{ theme: customThemePag }}>
-        <div className='flex justify-center overflow-x-auto bg-transparent pt-3 sm:justify-center lg:w-full lg:justify-end lg:pl-2 lg:ml-[70%]'>
-          <Pagination
-            layout='pagination'
-            currentPage={currentPage}
-            totalPages={totalPage}
-            onPageChange={onPageChange}
-            showIcons
-            previousLabel=''
-            nextLabel=''
-          />
-        </div>
-      </Flowbite>
+          )
+        )}
+      </div>
+
+      <div className='flex justify-center p-3 gap-5 mb-5'>
+        <button
+          onClick={clearRandomHandel}
+          className='text-white text-[10px] bg-green-400 rounded-full px-3 lg:text-sm hover:bg-gradient-to-r from-green-300 from-10% via-lime-300 via-50% to-emerald-500 to-90%'
+        >
+          Show Places
+        </button>
+        <Flowbite theme={{ theme: customThemePag }}>
+          <div className='flex justify-center overflow-x-auto bg-transparent sm:justify-center  lg:justify-end  '>
+            <Pagination
+              layout='pagination'
+              currentPage={currentPage}
+              totalPages={totalPage}
+              onPageChange={onPageChange}
+              showIcons
+              previousLabel=''
+              nextLabel=''
+            />
+          </div>
+        </Flowbite>
+        <button
+          onClick={randomHandel}
+          className='text-white bg-green-400 rounded-full px-3 text-[10px] lg:text-sm hover:bg-gradient-to-r from-green-300 from-10% via-lime-300 via-50% to-emerald-500 to-90%'
+        >
+          Random Place
+        </button>
+      </div>
     </div>
   );
 };
